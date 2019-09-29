@@ -48,7 +48,8 @@ public class Manager {
 		this.password = PASSWORD_ENCODER.encode(password);
 	}
 
-	protected Manager() {}
+	protected Manager() {
+	}
 
 	public Manager(String name, String password, String... roles) {
 
@@ -59,13 +60,13 @@ public class Manager {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 		Manager manager = (Manager) o;
-		return Objects.equals(id, manager.id) &&
-			Objects.equals(name, manager.name) &&
-			Objects.equals(password, manager.password) &&
-			Arrays.equals(roles, manager.roles);
+		return Objects.equals(id, manager.id) && Objects.equals(name, manager.name)
+				&& Objects.equals(password, manager.password) && Arrays.equals(roles, manager.roles);
 	}
 
 	@Override
@@ -106,11 +107,7 @@ public class Manager {
 
 	@Override
 	public String toString() {
-		return "Manager{" +
-			"id=" + id +
-			", name='" + name + '\'' +
-			", roles=" + Arrays.toString(roles) +
-			'}';
+		return "Manager{" + "id=" + id + ", name='" + name + '\'' + ", roles=" + Arrays.toString(roles) + '}';
 	}
 }
 // end::code[]

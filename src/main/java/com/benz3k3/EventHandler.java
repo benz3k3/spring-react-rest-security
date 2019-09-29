@@ -46,30 +46,27 @@ public class EventHandler {
 
 	@HandleAfterCreate
 	public void newEmployee(Employee employee) {
-		this.websocket.convertAndSend(
-				MESSAGE_PREFIX + "/newEmployee", getPath(employee));
+		this.websocket.convertAndSend(MESSAGE_PREFIX + "/newEmployee", getPath(employee));
 	}
 
 	@HandleAfterDelete
 	public void deleteEmployee(Employee employee) {
-		this.websocket.convertAndSend(
-				MESSAGE_PREFIX + "/deleteEmployee", getPath(employee));
+		this.websocket.convertAndSend(MESSAGE_PREFIX + "/deleteEmployee", getPath(employee));
 	}
 
 	@HandleAfterSave
 	public void updateEmployee(Employee employee) {
-		this.websocket.convertAndSend(
-				MESSAGE_PREFIX + "/updateEmployee", getPath(employee));
+		this.websocket.convertAndSend(MESSAGE_PREFIX + "/updateEmployee", getPath(employee));
 	}
 
 	/**
-	 * Take an {@link Employee} and get the URI using Spring Data REST's {@link EntityLinks}.
+	 * Take an {@link Employee} and get the URI using Spring Data REST's
+	 * {@link EntityLinks}.
 	 *
 	 * @param employee
 	 */
 	private String getPath(Employee employee) {
-		return this.entityLinks.linkForSingleResource(employee.getClass(),
-				employee.getId()).toUri().getPath();
+		return this.entityLinks.linkForSingleResource(employee.getClass(), employee.getId()).toUri().getPath();
 	}
 
 }

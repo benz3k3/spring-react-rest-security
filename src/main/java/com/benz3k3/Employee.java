@@ -41,7 +41,8 @@ public class Employee {
 
 	private @ManyToOne Manager manager;
 
-	private Employee() {}
+	private Employee() {
+	}
 
 	public Employee(String firstName, String lastName, String description, Manager manager) {
 		this.firstName = firstName;
@@ -52,15 +53,14 @@ public class Employee {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 		Employee employee = (Employee) o;
-		return Objects.equals(id, employee.id) &&
-			Objects.equals(firstName, employee.firstName) &&
-			Objects.equals(lastName, employee.lastName) &&
-			Objects.equals(description, employee.description) &&
-			Objects.equals(version, employee.version) &&
-			Objects.equals(manager, employee.manager);
+		return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName)
+				&& Objects.equals(lastName, employee.lastName) && Objects.equals(description, employee.description)
+				&& Objects.equals(version, employee.version) && Objects.equals(manager, employee.manager);
 	}
 
 	@Override
@@ -119,14 +119,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee{" +
-			"id=" + id +
-			", firstName='" + firstName + '\'' +
-			", lastName='" + lastName + '\'' +
-			", description='" + description + '\'' +
-			", version=" + version +
-			", manager=" + manager +
-			'}';
+		return "Employee{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\''
+				+ ", description='" + description + '\'' + ", version=" + version + ", manager=" + manager + '}';
 	}
 }
 // end::code[]
